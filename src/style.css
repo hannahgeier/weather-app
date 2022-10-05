@@ -21,6 +21,10 @@ list-style: none;
 text-align: end;
 }
 
+li::first-letter {
+text-transform: capitalize;
+}
+
 p {
 font-size: small;
 margin-top: -10px;
