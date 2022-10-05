@@ -53,6 +53,16 @@ color: #061c2d;
 font-size: 22px;
 }
 
+.units {
+font-size: 22px;
+}
+
 .current-date {
 font-weight: bold;
+}
+
+.active {
+color: #061c2d;
+cursor: default;
+text-decoration: none;
 }
