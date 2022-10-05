@@ -1,3 +1,44 @@
+.weather-app-wrapper {
+max-width: 800px;
+margin: 30px auto;
+}
+
+.weather-app {
+margin: 30px auto;
+padding: 20px;
+border: 1px solid #fdf4f4;
+border-radius: 5px;
+background-color: #fdf4f4;
+color: #061c2d;
+}
+
 h1 {
-    color:blue;
+font-size: 22px;
+}
+
+li {
+list-style: none;
+text-align: end;
+}
+
+p {
+font-size: small;
+margin-top: -10px;
+}
+
+a {
+color:#FFBBAC;
+font-size: small;
+}
+
+a:hover {
+color: #061c2d;
+}
+
+.current-temperature {
+font-size: 22px;
+}
+
+.current-date {
+font-weight: bold;
 }
