@@ -1,8 +1,3 @@
-let apiKey = "5da7b2dc058f07286fea39c4cee516a3";
-let city = "Sydney";
-let unit = "metric";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`
-
 function formatDate (timestamp) {
     let date = new Date(timestamp);
     let hours = date.getHours();
@@ -42,4 +37,19 @@ let iconElement = document.querySelector ("#icon");
 iconElement.setAttribute ("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
-axios.get (apiUrl). then(displayTemperature);
+function search (city) {
+    let apiKey = "5da7b2dc058f07286fea39c4cee516a3";
+    let unit = "metric";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`
+    axios.get (apiUrl). then(displayTemperature);
+}
+
+function handleSubmit (event) {
+event.preventDefault ();
+let cityInputElement = document.querySelector ("#city-input");
+search (cityInputElement.value);
+}
+search("Sydney");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
