@@ -1,5 +1,5 @@
 let apiKey = "5da7b2dc058f07286fea39c4cee516a3";
-let city = "London";
+let city = "Sydney";
 let unit = "metric";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`
 
@@ -37,5 +37,9 @@ windElement.innerHTML = Math.round(response.data.wind.speed);
 
 let dateElement = document.querySelector ("#date");
 dateElement.innerHTML = formatDate(response.data.dt * 1000);
+
+let iconElement = document.querySelector ("#icon");
+iconElement.setAttribute ("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
+
 axios.get (apiUrl). then(displayTemperature);
