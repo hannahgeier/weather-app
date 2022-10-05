@@ -12,8 +12,18 @@ background-color: #fdf4f4;
 color: #061c2d;
 }
 
+.btn-primary {
+background-color: #FFBBAC !important;
+border: 1px solid #FFBBAC !important;
+}
+
+.btn-primary:hover {
+background-color: #061c2d !important;
+border: 1px solid #061c2d !important;
+}
+
 h1 {
-font-size: 22px;
+font-size: 26px;
 }
 
 li {
