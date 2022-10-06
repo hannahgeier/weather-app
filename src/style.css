@@ -67,6 +67,10 @@ cursor: default;
 text-decoration: none;
 }
 
+.weather-search {
+margin-top: 20px;
+}
+
 .weather-forecast {
 margin-top:20px;
 text-align:center;
