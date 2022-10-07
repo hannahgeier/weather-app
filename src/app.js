@@ -43,7 +43,7 @@ function search (city) {
     let apiKey = "5da7b2dc058f07286fea39c4cee516a3";
     let unit = "metric";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`
-    axios.get (apiUrl). then(displayTemperature);
+    axios.get(apiUrl). then(displayTemperature);
 }
 
 function handleSubmit (event) {
@@ -81,7 +81,7 @@ function displayForecast() {
         forecastHTML =forecastHTML +
         `
         <div class="col-2">
-            <div class="weather-forecast-date">Thu</div>
+            <div class="weather-forecast-date">${day}</div>
             <img src="http://openweathermap.org/img/wn/03n@2x.png" alt="" width="42">
             <div class="weather-forecast-temperatures">
                 <span class="weather-forecast-temperature-max">18°</span>
