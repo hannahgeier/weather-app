@@ -56,17 +56,25 @@ iconElement.setAttribute ("src", `http://openweathermap.org/img/wn/${response.da
 getForecast(response.data.coord);
 }
 
-function search (city) {
+function searchCity (city) {
     let apiKey = "5da7b2dc058f07286fea39c4cee516a3";
     let unit = "metric";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`
     axios.get(apiUrl). then(displayTemperature);
 }
 
+function searchLocation (position) {
+    let apiKey = "5da7b2dc058f07286fea39c4cee516a3";
+    let unit = "metric";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=${unit}&appid=${apiKey}`;
+    
+    axios.get(apiUrl). then(displayTemperature);
+}
+
 function handleSubmit (event) {
 event.preventDefault ();
 let cityInputElement = document.querySelector ("#city-input");
-search (cityInputElement.value);
+searchCity (cityInputElement.value);
 }
 
 function displayFahrenheitTemperature(event) {
@@ -102,8 +110,8 @@ function displayForecast(response) {
             <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
             <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="42">
             <div class="weather-forecast-temperatures">
-                <span class="weather-forecast-temperature-max">${Math.round(forecastDay.temp.max)}°</span>
-                <span class="weather-forecast-temperature-min">${Math.round(forecastDay.temp.min)}°</span>
+                <span class="weather-forecast-temperature-max">${Math.round(forecastDay.temp.max)}°C</span>
+                <span class="weather-forecast-temperature-min">${Math.round(forecastDay.temp.min)}°C</span>
             </div>
         </div>
         `;
@@ -112,6 +120,12 @@ function displayForecast(response) {
 
     forecastHTML = forecastHTML + `</div>`;
     forecastElement.innerHTML = forecastHTML;
+}
+
+function getCurrentPosition (event) {
+    event.preventDefault();
+
+    navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
 let celsiusTemperature = null;
@@ -124,4 +138,7 @@ celsiusLink.addEventListener("click", displayCelsiusTemperature);
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-search("Sydney");
+let button = document.querySelector("#location-button");
+button.addEventListener("click", getCurrentPosition);
+
+searchCity("Sydney");
