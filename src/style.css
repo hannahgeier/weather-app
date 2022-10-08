@@ -12,14 +12,24 @@ background-color: #fdf4f4;
 color: #061c2d;
 }
 
-.btn-primary {
+.search-button {
 background-color: #FFBBAC !important;
 border: 1px solid #FFBBAC !important;
 }
 
-.btn-primary:hover {
+.search-button:hover {
 background-color: #061c2d !important;
 border: 1px solid #061c2d !important;
+}
+
+.location-button {
+background-color: #061c2d !important;
+border: 1px solid #061c2d !important;
+}
+    
+.location-button:hover {
+background-color: #FFBBAC !important;
+border: 1px solid #FFBBAC !important;
 }
 
 h1 {
